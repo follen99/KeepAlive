@@ -44,3 +44,37 @@ Con `--restart unless-stopped` il container riparte automaticamente quando Docke
 ```bash
 docker inspect nome-app | grep RestartPolicy
 ```
+
+---
+
+## Uso con Docker Compose (consigliato)
+
+Prima crea la cartella persistente del database:
+
+```bash
+mkdir -p instance
+```
+
+Avvio in background:
+
+```bash
+docker compose up -d --build
+```
+
+Log in tempo reale:
+
+```bash
+docker compose logs -f
+```
+
+Stop dei servizi:
+
+```bash
+docker compose down
+```
+
+L'app sarà disponibile su:
+
+```text
+http://localhost:5000
+```
