@@ -1,3 +1,13 @@
+# KeepAlive - Uptime Monitoring & Host Health Dashboard
+
+![KeepAlive Dashboard](assets/dashboard.png)
+
+Applicazione web moderna per monitorare la disponibilità e la salute di host/servizi remoti. Realizzata con **Flask**, **SQLite**, e **APScheduler** per eseguire check periodici automatici in background. Ideale per mantenere sotto controllo infrastrutture, siti web e servizi critici con uptime tracking e storico delle risposte.
+
+**Tech Stack:** Python 3.9+ | Flask | SQLAlchemy | APScheduler | HTML/CSS | SQLite | Docker
+
+---
+
 ## Build + Run con restart automatico
 
 **Build dell'immagine:**
@@ -14,21 +24,6 @@ docker run -d \
   -v $(pwd)/instance:/app/instance \
   nome-app
 ```
-
----
-
-### Restart policy — opzioni chiave
-
-| Policy | Comportamento |
-|---|---|
-| `no` | Mai (default) |
-| `on-failure` | Solo su exit code != 0 |
-| `always` | Sempre, anche dopo `docker stop` + daemon restart |
-| `unless-stopped` | Come `always`, ma **non** riparte se stoppato manualmente ✅ |
-
-Per la tua Flask app, **`unless-stopped`** è la scelta migliore.
-
----
 
 ### Avvio automatico al boot del sistema
 
